@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+$primary-color: #181823;
+$color-boton: #c20114;
+$secondary-color: #9292A0;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #F5F5F5;
+  color: $primary-color;
+
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
