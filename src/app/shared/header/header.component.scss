@@ -1,14 +1,16 @@
 @import "../../../styles";
 
+.header__mobile {
+  display: none;
+}
+
 .header__desktop {
   padding: 1% 3%;
   display: flex;
   align-items: center;
   gap: 3vw;
 
-  .header__mobile {
-    display: none;
-  }
+  
 
   .header__desktop__links {
     width: 100%;
@@ -21,10 +23,24 @@
       font-size: 1vw;
       color: $primary-color;
       transition: all 0.4s;
+      position: relative;
+
+    &::before { 
+      content: "";
+      width: 0%;
+      border-radius: 1vw;
+      height: .2vw;
+      bottom: -20%;
+      background: $terciary-color;
+      position: absolute;
+      transition: all 0.4s;
+
+    }      
+      
     }
 
-    .header__desktop__link:hover {
-      text-decoration: underline;
+    .header__desktop__link:hover::before {
+      width: 100%;
     }
   }
 
