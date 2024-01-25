@@ -1,17 +1,21 @@
-@import '../../../styles';
+@import "../../../styles";
 
-header {
+.header__desktop {
   padding: 1% 3%;
   display: flex;
   align-items: center;
   gap: 3vw;
 
-  .header__menu__links {
+  .header__mobile {
+    display: none;
+  }
+
+  .header__desktop__links {
     width: 100%;
     display: flex;
     gap: 3vw;
 
-    .header__menu__link {
+    .header__desktop__link {
       font-weight: 400;
       text-decoration: none;
       font-size: 1vw;
@@ -19,15 +23,121 @@ header {
       transition: all 0.4s;
     }
 
-    .header__menu__link:hover {
+    .header__desktop__link:hover {
       text-decoration: underline;
     }
   }
 
-  .header__menu__language {
+  .header__desktop__language {
     display: flex;
     gap: 0.5vw;
     font-size: 1vw;
     align-items: center;
+  }
+}
+
+//media queries
+@media (max-width: 420px) {
+  .header__desktop {
+    display: none;
+  }
+
+  .header__mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+
+    .header__mobile__menu {
+      &__open {
+        &--active {
+          display: none;
+        }
+      }
+
+      &__close {
+        display: none;
+
+        &--active {
+          display: block;
+        }
+      }
+    }
+
+    .header__mobile__logo {
+      img {
+        width: 80%;
+      }
+    }
+
+    .header__mobile__language {
+      img {
+        width: 6vw;
+      }
+    }
+
+    .header__mobile__menu {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      background-color: white;
+      top: 20vw;
+      left: 0;
+      z-index: 999;
+      transition: all 0.4s;
+      transform: translate(-100%);
+
+      &--active {
+        transform: translate(0%);
+      }
+
+      &__links {
+        display: flex;
+        flex-direction: column;
+        margin: 5%;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+
+        .header__mobile__link {
+          width: 100%;
+          height: fit-content;
+          padding: 5% 0 5%;
+
+          &:not(:last-child) {
+            border-bottom: 1px solid $secondary-color;
+          }
+
+          &__information__menu {
+            display: none;
+
+            &--active {
+              display: flex;
+              flex-direction: column;
+              margin: 0;
+              padding: 0;
+              list-style: none;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              gap: 3vw;
+              left: 0;
+              background: white;
+            }
+
+            a {
+              text-decoration: none;
+              color: $primary-color;
+            }
+
+            li {
+              padding: 0 0 0 5%;
+            }
+          }
+        }
+      }
+    }
   }
 }

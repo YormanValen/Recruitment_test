@@ -1,14 +1,65 @@
 <header>
-  <div class="header__logo">
-    <img src="assets/img/svg/logo.svg"  />
+  <div class="header__desktop">
+    <div class="header__desktop__logo">
+      <img src="assets/img/svg/logo.svg" />
+    </div>
+    <div
+      class="header__desktop__links"
+      [ngClass]="{ 'header__desktop__links--active': active }"
+    >
+      <a href="#" class="header__desktop__link">Check-in</a>
+      <a href="#" class="header__desktop__link">Manage my booking</a>
+      <a href="#" class="header__desktop__link">Information</a>
+    </div>
+    <div class="header__desktop__language">
+      <img src="assets/img/svg/language_icon.svg" />
+      <span>English</span>
+    </div>
   </div>
-  <div class="header__menu__links">
-    <a href="#" class="header__menu__link">Check-in</a>
-    <a href="#" class="header__menu__link">Manage my booking</a>
-    <a href="#" class="header__menu__link">Information</a>
-  </div>
-  <div class="header__menu__language">
-    <img src="assets/img/svg/language_icon.svg" />
-    <span>English</span>
+  <div class="header__mobile">
+    <div class="header__mobile__menu__icon">
+      <img
+        class="header__mobile__menu__open"
+        [ngClass]="{ 'header__mobile__menu__open--active': active }"
+        (click)="setActive()"
+        src="assets/img/svg/menu_icon.svg"
+      />
+      <img
+        class="header__mobile__menu__close"
+        [ngClass]="{ 'header__mobile__menu__close--active': active }"
+        (click)="setActive()"
+        src="assets/img/svg/close_icon.svg"
+      />
+    </div>
+    <div class="header__mobile__logo">
+      <img src="assets/img/svg/logo.svg" />
+    </div>
+    <div class="header__mobile__language">
+      <img src="assets/img/svg/language_icon.svg" />
+    </div>
+    <div
+      class="header__mobile__menu"
+      [ngClass]="{ 'header__mobile__menu--active': active }"
+    >
+      <ul class="header__mobile__menu__links">
+        <li class="header__mobile__link">Check-in</li>
+        <li class="header__mobile__link">Manage my booking</li>
+        <li class="header__mobile__link" (click)="setActiveMenu()">
+          Information
+          <ul
+            class="header__mobile__link__information__menu"
+            [ngClass]="{
+              'header__mobile__link__information__menu--active': active__menu
+            }"
+          >
+            <li><h3>Information</h3></li>
+            <li><a href="">Help center</a></li>
+            <li><a href="">Flight state</a></li>
+            <li><a href="">Airplanes</a></li>
+            <li><a href="">Routes</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </header>
